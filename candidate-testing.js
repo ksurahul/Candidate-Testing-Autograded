@@ -49,6 +49,7 @@ function gradeQuiz(candidateAnswers) {
     console.log('You failed the test.')
   }
 
+  
   return grade;
 }
 
