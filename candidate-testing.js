@@ -16,33 +16,43 @@ let questions = ['Who was the first American woman in space? ','True or false: 5
 let correctAnswers = ['Sally Ride','true','40','Trajectory','3'];
 let candidateAnswers = [];
 
-
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question('What is your name? ');
 }
 
 function askQuestion() {
-  // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-for (i = 0; i < questions.length; i++) {
-  let response = input.question(questions[i]);
-  candidateAnswers.push(response)
-  }
+  //Ask candidate the question and assign the response as candidateAnswer //
+  for (i = 0; i < questions.length; i++) {
+    let response = input.question(questions[i]);
+    candidateAnswers.push(response)
+  } 
+  
+  return candidateAnswers
 }
 
 function gradeQuiz(candidateAnswers) {
+  let numCorrect = 0;
+  // Let the candidate know if they have answered the question correctly or incorrectly // 
+  for (i = 0; i < correctAnswers.length; i++){
+    if(correctAnswers[i].toUpperCase() === candidateAnswers[i].toUpperCase()) {
+      numCorrect = numCorrect + 1;
+      console.log(`${correctAnswers[i]} is the correct answer, you answered ${candidateAnswers[i]} with ${numCorrect}`)
+    }
+  }
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-for (i = 0; i < correctAnswers.length; i++){
-  console.log(`You answered '${candidateAnswers[i]}'. The correct answer is '${correctAnswers[i]}'.`)
-}
+  let grade = numCorrect / 5 * 100;  //use this variable to calculate the candidates score.
 
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  if(grade >= 80){
+    console.log('You passed the test.')
+  } else {
+    console.log('You failed the test.')
+  }
 
   return grade;
 }
+
+
 
 function runProgram() {
   askForName();
