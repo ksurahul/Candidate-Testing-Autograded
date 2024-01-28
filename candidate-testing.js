@@ -41,15 +41,16 @@ function gradeQuiz(candidateAnswers) {
     }
   }
 
-  let grade = numCorrect / 5 * 100;  //use this variable to calculate the candidates score.
+  //calculates the candidates score percentage and checks to see if user passes or fails
+  let grade = numCorrect / 5 * 100;  
 
   if(grade >= 80){
-    console.log('You passed the test.')
+    console.log(`You scored ${grade} which means you passed the test.`)
   } else {
-    console.log('You failed the test.')
+    console.log(`You failed the test. You scored ${grade}%. You need at least 80% to pass.`)
   }
 
-  
+
   return grade;
 }
 
