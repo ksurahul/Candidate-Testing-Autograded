@@ -37,7 +37,9 @@ function gradeQuiz(candidateAnswers) {
   for (i = 0; i < correctAnswers.length; i++){
     if(correctAnswers[i].toUpperCase() === candidateAnswers[i].toUpperCase()) {
       numCorrect = numCorrect + 1;
-      console.log(`${correctAnswers[i]} is the correct answer, you answered ${candidateAnswers[i]} with ${numCorrect}`)
+      console.log(`For question ${i+1}, ${correctAnswers[i]} is the correct answer, you answered ${candidateAnswers[i]}`)
+    } else {
+      console.log(`For question ${i+1}, ${correctAnswers[i]} is the correct answer, you answered ${candidateAnswers[i]}`)
     }
   }
 
@@ -45,7 +47,7 @@ function gradeQuiz(candidateAnswers) {
   let grade = numCorrect / 5 * 100;  
 
   if(grade >= 80){
-    console.log(`You scored ${grade} which means you passed the test.`)
+    console.log(`You scored ${grade}% which means you passed the test.`)
   } else {
     console.log(`You failed the test. You scored ${grade}%. You need at least 80% to pass.`)
   }
